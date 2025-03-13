@@ -1,0 +1,11 @@
+<div class="">
+    <div class="">
+      <form [formGroup]="checkoutForm" (ngSubmit)="handlePayment()">
+        <input formControlName="name" placeholder="Your full Name" />
+        <input formControlName="email" type="email" placeholder="Enter email" />
+        <button type="submit" class="btn btn-primary">
+          Proceed to pay ${{total}}
+        </button>
+      </form>
+    </div>
+  </div>

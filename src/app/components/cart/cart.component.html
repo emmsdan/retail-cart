@@ -16,26 +16,33 @@
     <p>
       <strong>${{ item.product.price * item.quantity }}</strong>
     </p>
-    <input
-      type="number"
-      [(ngModel)]="item.quantity"
-      (change)="updateQuantity(item.product.id, item.quantity)"
-    />
+    <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item.product.id, item.quantity)" />
     <button (click)="removeFromCart(item.product.id)" class="btn btn-danger">
       Remove
     </button>
   </div>
 
-  <div class="cart-discount">
-    <input
-      type="text"
-      [(ngModel)]="discountCode"
-      placeholder="Enter Discount Code"
-    />
-    <button (click)="applyDiscount()" class="btn btn-primary">Apply</button>
-    <p *ngIf="discountMessage" class="discount-message">
-      {{ discountMessage }}
-    </p>
+  <div *ngIf="!cartItems.length">
+    <p class="empty-cart">Your cart is empty</p>
   </div>
-  <h3>Total: ${{ getTotal() }}</h3>
+
+  <div class="checkout" *ngIf="cartItems.length > 0">
+    <div>
+
+    <div class="cart-discount">
+      <input type="text" [(ngModel)]="discountCode" placeholder="Enter Discount Code" />
+      <button (click)="applyDiscount()" class="btn btn-primary">Apply</button>
+      <p *ngIf="discountMessage" class="discount-message">
+        {{ discountMessage }}
+      </p>
+    </div>
+  <h3>Total: ${{ total }}</h3>
+
+    </div>
+
+    <div class="cart-buttons">
+      <!-- <app-checkout [total]="total" [cartItems]="cartItems"></app-checkout> -->
+      </div>
+  </div>
+
 </div>

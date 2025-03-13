@@ -4,13 +4,14 @@ import { CartItem } from '../../models/cart-item.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from '../../services/toast.service';
+import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CheckoutComponent],
 })
 export class CartComponent {
   cartItems: CartItem[] = [];
@@ -31,8 +32,10 @@ export class CartComponent {
   }
 
   ngOnInit() {
-    this.cartItems = this.cartService.getCartItems();
-    this.updateTotals();
+   this.cartService.cart$.subscribe((cartItems) => {
+      this.cartItems = cartItems;
+      this.updateTotals();
+    });
   }
 
   updateTotals() {
@@ -62,7 +65,7 @@ export class CartComponent {
     this.toastService.showMessage(`You removed item from cart!`);
   }
 
-  getTotal(): number {
-    return this.cartService.getGrandTotal();
+  clearCart(): void {
+    this.cartService.clearCart()
   }
 }

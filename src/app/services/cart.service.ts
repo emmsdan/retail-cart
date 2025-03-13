@@ -15,6 +15,11 @@ export class CartService {
   saveCart() {
     localStorage.setItem('cart', JSON.stringify(this.cartItems));
   }
+  clearCart(){
+    this.cartItems = []
+    this.cartSubject.next([]);
+    this.saveCart();
+  }
 
   addToCart(product: Product) {
     const item = this.cartItems.find((i) => i.product.id === product.id);
