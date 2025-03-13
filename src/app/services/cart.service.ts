@@ -44,7 +44,7 @@ export class CartService {
     const item = this.cartItems.find((i) => i.product.id === productId);
     if (item) {
       item.quantity = quantity > 0 ? quantity : 0;
-      this.cartItems = this.cartItems.filter((i) => i.quantity > 0);
+      this.cartItems = this.cartItems;
     }
     this.saveCart();
     this.cartSubject.next([...this.cartItems]);
