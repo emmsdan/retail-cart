@@ -44,12 +44,12 @@ describe('ProductCardComponent', () => {
     component.product = mockProduct;
     fixture.detectChanges();
 
-    jest.spyOn(component.buy, 'emit');
+    jest.spyOn(component.onAddToCart, 'emit');
 
     const button = fixture.debugElement.query(By.css('.buy'));
     button.nativeElement.click();
 
-    expect(component.buy.emit).toHaveBeenCalledWith(mockProduct);
+    expect(component.onAddToCart.emit).toHaveBeenCalledWith(mockProduct);
   });
 
   it('should apply dynamic styles based on the product name', () => {

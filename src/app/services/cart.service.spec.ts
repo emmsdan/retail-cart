@@ -45,10 +45,16 @@ describe('CartService', () => {
     expect(service.getCartItems()[0].quantity).toBe(5);
   });
 
-  it('should remove product if quantity is set to 0', () => {
+  it('should not remove product if quantity is set to 0', () => {
     service.addToCart(product1);
+    service.addToCart(product2);
     service.updateQuantity(product1.id, 0);
-    expect(service.getCartItems().length).toBe(0);
+    const total = service.getGrandTotal()
+    const cartSize = service.getCartItems().length
+    service.removeFromCart(product2.id);
+    expect(cartSize).toBe(2);
+    expect(product2.price).toEqual(total);
+    expect(total).toBe(200);
   });
 
   it('should calculate grand total correctly', () => {

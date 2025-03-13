@@ -1,7 +1,9 @@
 <div class="product-list-header">
-  <input (input)="handleFilter($event)" placeholder="Search for product" />
-  <div *ngIf="!filterProducts.length">
-    <p class="empty">Search not found</p>
+  <div>
+    <input (input)="handleFilter($event)" placeholder="Search for product" />
+    <div *ngIf="!filterProducts.length">
+      <p class="empty">Search not found</p>
+    </div>
   </div>
 </div>
 
