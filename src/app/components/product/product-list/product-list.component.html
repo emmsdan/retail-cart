@@ -1,11 +1,12 @@
-<div class="product-list">
-  <div>
-
-    <input (input)="handleFilter($event)" placeholder="Search for product" />
-    <div *ngIf="!filterProducts.length">
-      <p class="empty">Search not found</p>
-    </div>
+<div class="product-list-header">
+  <input (input)="handleFilter($event)" placeholder="Search for product" />
+  <div *ngIf="!filterProducts.length">
+    <p class="empty">Search not found</p>
   </div>
+</div>
+
+<div class="product-list">
+  
   <app-product-card *ngFor="let product of filterProducts" [product]="product"
     (onAddToCart)="addToCart(product)"></app-product-card>
 </div>

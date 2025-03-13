@@ -1,4 +1,4 @@
-.product-list {
+.product-list, .product-list-header {
   display: flex;
   gap: 20px;
   padding: 20px;
@@ -12,7 +12,7 @@
   border-radius: 8px;
 }
 
-.product-list input {
+.product-list-header input {
   min-width: 300px;
   height: 40px;
   padding: 0 10px;
