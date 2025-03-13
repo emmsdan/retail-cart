@@ -3,13 +3,14 @@ import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../models/cart-item.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
   standalone: true,
-  imports: [CommonModule, FormsModule], 
+  imports: [CommonModule, FormsModule],
 })
 export class CartComponent {
   cartItems: CartItem[] = [];
@@ -21,7 +22,7 @@ export class CartComponent {
   discount: number = 0;
   total: number = 0;
 
-  constructor(public cartService: CartService) {
+  constructor(public cartService: CartService, private toastService: ToastService) {
     this.cartItems = this.cartService.getCartItems();
     this.grandTotal = this.cartService.getGrandTotal();
   }
@@ -32,7 +33,9 @@ export class CartComponent {
   }
 
   updateTotals() {
-    this.subtotal = this.cartService.getCartItems().reduce((total, item) => total + item.product.price * item.quantity, 0);
+    this.subtotal = this.cartService
+      .getCartItems()
+      .reduce((total, item) => total + item.product.price * item.quantity, 0);
     this.discount = this.cartService.getDiscountAmount();
     this.total = this.cartService.getGrandTotal();
   }
@@ -40,6 +43,7 @@ export class CartComponent {
   applyDiscount() {
     this.discountMessage = this.cartService.applyDiscount(this.discountCode);
     this.updateTotals();
+    this.toastService.showMessage(this.discountMessage);
   }
 
   updateQuantity(productId: number, quantity: number) {
@@ -52,10 +56,10 @@ export class CartComponent {
     this.cartService.removeFromCart(productId);
     this.cartItems = this.cartService.getCartItems();
     this.updateTotals();
+    this.toastService.showMessage(`You removed item from cart!`);
   }
-  
+
   getTotal(): number {
     return this.cartService.getGrandTotal();
   }
-
 }

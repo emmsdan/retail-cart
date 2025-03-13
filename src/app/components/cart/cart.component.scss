@@ -1,11 +1,30 @@
 
 .cart-container {
-    max-width: 600px;
-    margin: auto;
+    max-width: 800px;
+    margin: 2rem auto;
+
   }
   
   .cart-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #cdc;
+
+    img {
+      width: 100px;
+    }
+    input {
+      width: 50px;
+    }
+    .cart-item-name {
+      width: 40%;
+    }
+
+  }
+  .cart-discount {
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }

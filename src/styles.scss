@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Istok Web", sans-serif;
+}
+
+button.btn {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  display: block;
+  border: none;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+button.btn-primary {
+  background: #212121;
+  color: #ffce00;
+}
+button.btn-primary:hover {
+  background: #836e17;
+}
+button.btn-danger {
+  background: #ff0000;
+  color: #ffffff;
+}
+button.btn-danger:hover {
+  background: #8d2e2e;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+input,
+button {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

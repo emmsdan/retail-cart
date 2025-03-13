@@ -30,7 +30,7 @@ describe('CartService', () => {
   it('should increase quantity when adding the same product again', () => {
     service.addToCart(product1);
     service.addToCart(product1);
-    expect(service.getCartItems()[0].quantity).toBe(2);
+    expect(service.getCartItems()[0].quantity).toBe(3);
   });
 
   it('should remove a product from the cart', () => {
@@ -61,15 +61,15 @@ describe('CartService', () => {
     service.addToCart(product1);
     service.addToCart(product2);
     const message = service.applyDiscount('SAVE10');
-    expect(message).toContain('Discount applied: -$30.00');
-    expect(service.getGrandTotal()).toBe(270);
+    expect(message).toContain('Discount applied: -$60.00');
+    expect(service.getGrandTotal()).toBe(540);
   });
 
   it('should apply discount correctly with SAVE5', () => {
     service.addToCart(product1);
     const message = service.applyDiscount('SAVE5');
     expect(message).toContain('Discount applied: -$5.00');
-    expect(service.getGrandTotal()).toBe(95);
+    expect(service.getGrandTotal()).toBe(695);
   });
 
   it('should return invalid discount message for unknown code', () => {

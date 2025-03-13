@@ -1,0 +1,10 @@
+<div  [ngStyle]="dynamicStyles" class="card">
+    <div class="imgBox">
+        <img [src]="product.image || 'assets/placeholder.png'" alt="{{ product.name }}" class="product-image">
+    </div>
+    <div class="contentBox">
+        <h3>{{ product.name }}</h3>
+        <h2 class="price">{{ product.price | currency:'USD' }}</h2>
+        <button *ngIf="showBuyButton" (click)="onBuy()" class="buy btn">Buy Now</button>
+    </div>
+</div>
