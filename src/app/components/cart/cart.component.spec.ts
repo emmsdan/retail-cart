@@ -93,7 +93,6 @@ describe('CartComponent', () => {
     jest.spyOn(cartService, 'getGrandTotal').mockReturnValue(150);
 
     component.applyDiscount();
-    component.getTotal();
 
     expect(cartService.applyDiscount).toHaveBeenCalled();
     expect(cartService.getGrandTotal).toHaveBeenCalled();

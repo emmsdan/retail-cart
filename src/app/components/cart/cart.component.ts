@@ -65,6 +65,10 @@ export class CartComponent {
     this.toastService.showMessage(`You removed item from cart!`);
   }
 
+  getTotal(): number {
+    return this.cartService.getGrandTotal();
+  }
+
   clearCart(): void {
     this.cartService.clearCart()
   }
