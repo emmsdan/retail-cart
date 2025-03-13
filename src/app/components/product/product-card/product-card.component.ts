@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss'
+  styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent {
   @Input() product!: Product;
@@ -15,7 +15,7 @@ export class ProductCardComponent {
   @Output() buy = new EventEmitter<Product>();
   get dynamicStyles() {
     return {
-      '--product-name': `"${this.product?.name || 'Default'}"`
+      '--product-name': `"${this.product?.name || 'Default'}"`,
     };
   }
   onBuy(): void {

@@ -16,13 +16,13 @@ export class ProductService {
   }
 
   updateProduct(updatedProduct: Product): void {
-    const index = this.products.findIndex(p => p.id === updatedProduct.id);
+    const index = this.products.findIndex((p) => p.id === updatedProduct.id);
     if (index !== -1) {
       this.products[index] = updatedProduct;
     }
   }
 
   deleteProduct(productId: number): void {
-    this.products = this.products.filter(p => p.id !== productId);
+    this.products = this.products.filter((p) => p.id !== productId);
   }
 }

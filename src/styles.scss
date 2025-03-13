@@ -30,7 +30,6 @@ button.btn-danger:hover {
 form {
   display: flex;
   flex-direction: column;
-
 }
 
 input,
@@ -41,5 +40,11 @@ button {
   border-radius: 8px;
   border: 1px solid;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

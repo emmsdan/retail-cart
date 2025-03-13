@@ -31,7 +31,7 @@ export class ProductManagementComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private toastService: ToastService
+    private toastService: ToastService,
   ) {}
 
   ngOnInit(): void {
@@ -72,7 +72,7 @@ export class ProductManagementComponent implements OnInit {
       this.editingProduct = null;
     } else {
       const newProduct: Product = {
-        id: Date.now(), // Unique ID
+        id: Date.now(),
         name: this.productForm.value.name!,
         price: this.productForm.value.price!,
       };
@@ -90,7 +90,6 @@ export class ProductManagementComponent implements OnInit {
       image: product.image || '',
     });
     this.toggleOpenProduct();
-
   }
 
   deleteProduct(productId: number): void {

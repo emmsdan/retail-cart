@@ -12,13 +12,13 @@ describe('ProductCardComponent', () => {
     id: 1,
     name: 'Test Product',
     price: 99.99,
-    image: 'assets/test-product.png'
+    image: 'assets/test-product.png',
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProductCardComponent],
-      providers: [ActivatedRouteProviderMock]
+      providers: [ActivatedRouteProviderMock],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductCardComponent);

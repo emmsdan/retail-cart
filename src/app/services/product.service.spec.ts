@@ -8,7 +8,7 @@ describe('ProductService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ActivatedRouteProviderMock]
+      providers: [ActivatedRouteProviderMock],
     });
     service = TestBed.inject(ProductService);
   });

@@ -16,6 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     importProvidersFrom(MatSnackBarModule),
-    { provide: BrowserAnimationsModule, useClass: BrowserAnimationsModule }
+    { provide: BrowserAnimationsModule, useClass: BrowserAnimationsModule },
   ],
 };

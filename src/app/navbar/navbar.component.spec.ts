@@ -10,9 +10,8 @@ describe('NavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NavbarComponent],
-      providers: [ActivatedRouteProviderMock]
-    })
-    .compileComponents();
+      providers: [ActivatedRouteProviderMock],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;

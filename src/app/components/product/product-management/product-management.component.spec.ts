@@ -10,9 +10,8 @@ describe('ProductManagementComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProductManagementComponent],
-      providers: [ActivatedRouteProviderMock]
-    })
-    .compileComponents();
+      providers: [ActivatedRouteProviderMock],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProductManagementComponent);
     component = fixture.componentInstance;

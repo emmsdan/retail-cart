@@ -1,23 +1,21 @@
-
 nav {
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-    background: #191919;
-    color: white;
-    padding: 10px;
-    gap: 20px;
-  }
-  nav a {
-    cursor: pointer;
-    color: white;
-    padding: 1rem;
-    text-decoration: none;
-  }
-  nav a:hover {
-    background-color: #ffce00;
-    color: #191919;
-  }
-  nav .logo {
-    width: 50px;
-  }
+  display: flex;
+  align-items: center;
+  background: #191919;
+  color: white;
+  padding: 10px;
+  gap: 20px;
+}
+nav a {
+  cursor: pointer;
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+}
+nav a:hover {
+  background-color: #ffce00;
+  color: #191919;
+}
+nav .logo {
+  width: 50px;
+}

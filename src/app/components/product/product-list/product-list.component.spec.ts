@@ -10,9 +10,8 @@ describe('ProductListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProductListComponent],
-      providers: [ActivatedRouteProviderMock]
-    })
-    .compileComponents();
+      providers: [ActivatedRouteProviderMock],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProductListComponent);
     component = fixture.componentInstance;

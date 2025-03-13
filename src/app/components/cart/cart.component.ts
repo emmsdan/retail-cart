@@ -22,7 +22,10 @@ export class CartComponent {
   discount: number = 0;
   total: number = 0;
 
-  constructor(public cartService: CartService, private toastService: ToastService) {
+  constructor(
+    public cartService: CartService,
+    private toastService: ToastService,
+  ) {
     this.cartItems = this.cartService.getCartItems();
     this.grandTotal = this.cartService.getGrandTotal();
   }

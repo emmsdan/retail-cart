@@ -1,36 +1,43 @@
 <div class="product-management">
-    <h2>Product Management</h2>
+  <h2>Product Management</h2>
 
-    <div class="create-edit-product-wrapper" *ngIf="showProduct">
-        <div class="create-edit-product">
-            <h2>Add Product</h2>
-            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-                <input formControlName="image" placeholder="Image url">
-                <input formControlName="name" placeholder="Product Name">
-                <input formControlName="price" type="number" placeholder="Price">
-                <button type="submit" class="btn btn-primary">{{ editingProduct ? 'Update' : 'Add' }} Product</button>
-                <button type="button" id="closeProduct" (click)="toggleOpenProduct()">x</button>
-            </form>
-        </div>
+  <div class="create-edit-product-wrapper" *ngIf="showProduct">
+    <div class="create-edit-product">
+      <h2>Add Product</h2>
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <input formControlName="image" placeholder="Image url" />
+        <input formControlName="name" placeholder="Product Name" />
+        <input formControlName="price" type="number" placeholder="Price" />
+        <button type="submit" class="btn btn-primary">
+          {{ editingProduct ? "Update" : "Add" }} Product
+        </button>
+        <button type="button" id="closeProduct" (click)="toggleOpenProduct()">
+          x
+        </button>
+      </form>
     </div>
+  </div>
 
-
-    <div>
-
+  <div>
     <button class="btn btn-primary" (click)="toggleOpenProduct()">
-        Create New Product
+      Create New Product
     </button>
+  </div>
+  <!-- Product List -->
+  <div class="product-list">
+    <div *ngFor="let product of products" class="product-item">
+      <app-product-card
+        [product]="product"
+        [showBuyButton]="false"
+      ></app-product-card>
+      <div class="product-action">
+        <button class="btn btn-primary" (click)="editProduct(product)">
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+      </div>
     </div>
-    <!-- Product List -->
-    <div class="product-list">
-
-        <div *ngFor="let product of products" class="product-item">
-            <app-product-card [product]="product" [showBuyButton]="false"></app-product-card>
-            <div class="product-action">
-                <button class="btn btn-primary" (click)="editProduct(product)">Edit</button>
-                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>

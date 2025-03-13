@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class CartService {
   private cartItems: CartItem[] = JSON.parse(
-    localStorage.getItem('cart') || '[]'
+    localStorage.getItem('cart') || '[]',
   );
   private cartSubject = new BehaviorSubject<CartItem[]>(this.cartItems);
   cart$ = this.cartSubject.asObservable();
@@ -29,7 +29,7 @@ export class CartService {
 
   removeFromCart(productId: number) {
     this.cartItems = this.cartItems.filter(
-      (item) => item.product.id !== productId
+      (item) => item.product.id !== productId,
     );
     this.saveCart();
     this.cartSubject.next([...this.cartItems]);
@@ -53,18 +53,20 @@ export class CartService {
     return (
       this.cartItems.reduce(
         (total, item) => total + item.product.price * item.quantity,
-        0
+        0,
       ) - this.discountAmount
     );
   }
 
-  discountValue(code: string){
-    switch (code){
+  discountValue(code: string) {
+    switch (code) {
       case 'SAVE10':
-        return this.getCartItems().reduce(
-          (total, item) => total + item.product.price * item.quantity,
-          0
-        ) * 0.1;
+        return (
+          this.getCartItems().reduce(
+            (total, item) => total + item.product.price * item.quantity,
+            0,
+          ) * 0.1
+        );
       case 'SAVE5':
         return 5;
       default:
@@ -75,13 +77,13 @@ export class CartService {
   applyDiscount(code: string): string {
     let discount = 0;
     discount = this.discountValue(code);
-    if (!discount){
+    if (!discount) {
       this.discountAmount = 0;
       return 'Invalid discount code';
     }
     this.discountAmount = discount;
-    const message =  `Discount applied: -$${discount.toFixed(2)}`;
-    return message
+    const message = `Discount applied: -$${discount.toFixed(2)}`;
+    return message;
   }
 
   getDiscountAmount(): number {
