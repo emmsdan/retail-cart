@@ -9,8 +9,8 @@
   <div class="contentBox">
     <h3>{{ product.name }}</h3>
     <h2 class="price">{{ product.price | currency: "USD" }}</h2>
-    <button *ngIf="showBuyButton" (click)="onBuy()" class="buy btn">
-      Buy Now
+    <button *ngIf="showBuyButton" (click)="handleAddToCart()" class="buy btn">
+      Add to Cart
     </button>
   </div>
 </div>

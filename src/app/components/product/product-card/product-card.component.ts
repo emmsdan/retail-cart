@@ -12,13 +12,13 @@ import { CommonModule } from '@angular/common';
 export class ProductCardComponent {
   @Input() product!: Product;
   @Input() showBuyButton: boolean = true;
-  @Output() buy = new EventEmitter<Product>();
+  @Output() onAddToCart = new EventEmitter<Product>();
   get dynamicStyles() {
     return {
       '--product-name': `"${this.product?.name || 'Default'}"`,
     };
   }
-  onBuy(): void {
-    this.buy.emit(this.product);
+  handleAddToCart(): void {
+    this.onAddToCart.emit(this.product);
   }
 }

@@ -15,6 +15,7 @@ import { ToastService } from '../../../services/toast.service';
 })
 export class ProductListComponent {
   products: Product[] = [];
+  filterProducts: Product[] = [];
 
   constructor(
     private productService: ProductService,
@@ -24,10 +25,19 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     this.products = this.productService.getProducts();
+    this.filterProducts = this.products;
   }
 
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
     this.toastService.showMessage(`${product.name} added to cart!`);
+  }
+
+  handleFilter(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const filter = inputElement.value;
+    this.filterProducts = this.products.filter((product) =>
+      product.name.toLowerCase().includes(filter.toLowerCase()),
+    );
   }
 }
