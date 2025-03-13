@@ -64,7 +64,7 @@ export class CartService {
   }
 
   discountValue(code: string) {
-    switch (code) {
+    switch (code.trim().toUpperCase()) {
       case 'SAVE10':
         return (
           this.getCartItems().reduce(
