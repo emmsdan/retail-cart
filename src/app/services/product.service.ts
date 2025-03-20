@@ -12,7 +12,7 @@ export class ProductService {
 
   constructor() {
     if (this.allProducts.length < 12){
-      this.allProducts = PRODUCTS
+      this.allProducts = [...PRODUCTS, ...this.allProducts]
       this.productsSubject.next(this.allProducts)
     }
     this.products = this.allProducts
