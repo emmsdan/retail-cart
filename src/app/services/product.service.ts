@@ -11,7 +11,7 @@ export class ProductService {
   products$ = this.productsSubject.asObservable();
 
   constructor() {
-    if (this.allProducts.length === 0){
+    if (this.allProducts.length < 12){
       this.allProducts = PRODUCTS
       this.productsSubject.next(this.allProducts)
     }
