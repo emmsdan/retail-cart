@@ -8,7 +8,8 @@
     <p>Quantity</p>
     <p>Action</p>
   </div>
-  <div *ngFor="let item of cartItems" class="cart-item">
+  @for (item of cartItems; track item.id) {
+    <div class="cart-item">
     <img [src]="item.product.image" alt="{{ item.product.name }}" />
     <p class="cart-item-name">
       {{ item.product.name }} - ${{ item.product.price }}
@@ -21,27 +22,31 @@
       Remove
     </button>
   </div>
-
-  <div *ngIf="!cartItems.length">
-    <p class="empty-cart">Your cart is empty</p>
-  </div>
-
-  <div class="checkout" *ngIf="cartItems.length > 0">
+  }
+  @if(!cartItems.length){
+    <div>
+      <p class="empty-cart">Your cart is empty</p>
+    </div>
+  }
+  @if (cartItems.length > 0){
+  <div class="checkout">
     <div>
 
     <div class="cart-discount">
       <input type="text" [(ngModel)]="discountCode" placeholder="Enter Discount Code" />
       <button (click)="applyDiscount()" class="btn btn-primary">Apply</button>
-      <p *ngIf="discountMessage" class="discount-message">
+      @if (discountMessage){
+      <p class="discount-message">
         {{ discountMessage }}
       </p>
+      }
     </div>
-  <h3>Total: ${{ total }}</h3>
+  <h3>Total: {{ total | currency: '₦' }}</h3>
 
     </div>
 
     <div class="cart-buttons">
       </div>
   </div>
-
+  }
 </div>

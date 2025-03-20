@@ -1,7 +1,8 @@
 <div class="product-management">
   <h2>Product Management</h2>
 
-  <div class="create-edit-product-wrapper" *ngIf="showProduct">
+  @if(showProduct) {
+  <div class="create-edit-product-wrapper" >
     <div class="create-edit-product">
       <h2>Add Product</h2>
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
@@ -18,7 +19,7 @@
       </form>
     </div>
   </div>
-
+  }
   <div>
     <button class="btn btn-primary" (click)="toggleOpenProduct()">
       Create New Product
@@ -26,11 +27,13 @@
   </div>
   <!-- Product List -->
   <div class="product-list">
-    <div *ngFor="let product of products" class="product-item">
-      <app-product-card
-        [product]="product"
-        [showBuyButton]="false"
-      ></app-product-card>
-    </div>
+    @for (product of products; track product.id) {
+      <div class="product-item">
+        <app-product-card
+          [product]="product"
+          [showBuyButton]="false"
+        ></app-product-card>
+      </div>
+    }
   </div>
 </div>

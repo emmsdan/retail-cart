@@ -1,27 +1,122 @@
 # RetailCart
+### Ecommerce Project
+A modern, responsive ecommerce application built with Angular 18. 
+This project demonstrates best practices for building scalable Angular applications with the latest features.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+## Features
 
-## Development server
+- **Product Catalog** - Browse and search products
+- **Shopping Cart** - Add/remove items, update quantities
+- **Responsive Design** - Mobile-first approach
+- **Modern UI** - Clean, intuitive interface
+- **Discount Support** - Support the use of discount on app
+- **Admin panel** - Add new products for users to choose from
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies
 
-## Code scaffolding
+- **Angular 18** - Latest version with standalone components
+- **Signal-based State Management** - Using Angular's new reactive primitives
+- **New Control Flow Syntax** - Using `@if`, `@for` instead of traditional directives
+- **TypeScript** - Type-safe development
+- **CSS** - Component-scoped styling
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
+- Node.js (v20.x or later)
+- npm (v10.x or later)
+- Angular CLI (v18.x or later)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone the repository:
 
-## Running unit tests
+```shellscript
+git clone https://github.com/emmsdan/retail-cart.git
+cd retail-cart
+```
+2. Install dependencies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shellscript
+npm install
+```
+3. Start the development server:
 
-## Running end-to-end tests
+```shellscript
+ng serve
+```
+4. Open your browser and navigate to `http://localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project Structure
+```plaintext
+src/
+├── app/
+│   ├── components/
+│   │   ├── cart/
+│   │   ├── navbar/
+│   │   ├── products/
+│   │   │   └── product-card/
+│   │   │   └── product-list/
+│   │   │   └── product-management/
+│   ├── models/
+│   │   └── cart.model.ts
+│   │   └── product.model.ts
+│   ├── services/
+│   │   ├── cart.service.ts
+│   │   └── product.service.ts
+│   │   └── toast.service.ts
+│   └── app.component.ts
+├── assets/
+├── styles.css
+└── main.ts
+└── index.html
+```
 
-## Further help
+### Benefits of this approach:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Fine-grained reactivity
+- Improved performance
+- Type safety
+- No external dependencies
+
+## Building for Production
+To build the application for production:
+
+```shellscript
+ng build --configuration production
+```
+The build artifacts will be stored in the `dist/` directory.
+
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin feature/my-new-feature`
+5. Submit a pull request
+
+### Coding Standards
+- Follow the [Angular Style Guide](https://angular.io/guide/styleguide)
+- Write unit tests for new features
+- Ensure all tests pass before submitting a PR
+- Use descriptive commit messages
+
+## Future Enhancements
+
+- User authentication
+- Product details page
+- Wishlist functionality
+- Order history
+- Payment integration
+- Full Admin dashboard
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+- [EmmsDan](https://emmsdan.com) - https://emmsdan.com
+---
+
+
+
+For questions or support, please open an issue in the repository.

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
-import { ActivatedRouteProviderMock } from '../../shared/mock/app-router';
+import { ActivatedRouteProviderMock } from '../../../shared/mock/app-router';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;

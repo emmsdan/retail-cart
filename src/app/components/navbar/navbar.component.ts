@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { CartItem } from '../models/cart-item.model';
-import { CartService } from '../services/cart.service';
+import { CartItem } from '../../models/cart-item.model';
+import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {ProductService} from '../services/product.service';
+import {ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-navbar',

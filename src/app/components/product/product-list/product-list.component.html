@@ -5,8 +5,10 @@
     <p class="no-results">No products found search </p>
   } @else {
     <div class="products-grid">
-  <app-product-card *ngFor="let product of products" [product]="product"
+      @for (product of products; track product.id){
+  <app-product-card [product]="product"
     (onAddToCart)="addToCart(product)" (onRemoveFromCart)="removeFromCart(product)" [isInCart]="isInCart(product.id)"></app-product-card>
+      }
     </div>
 }
 </div>
