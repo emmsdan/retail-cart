@@ -12,6 +12,10 @@ export class ProductService {
   products$ = this.productsSubject.asObservable();
 
   constructor() {
+    if (this.allProducts.length === 0){
+      this.allProducts = PRODUCTS
+      this.productsSubject.next(this.allProducts)
+    }
     this.products = this.allProducts
   }
 
@@ -26,7 +30,7 @@ export class ProductService {
 
   addProduct(product: Product): void {
     product.id = this.allProducts.length + 1;
-    this.allProducts.push(product);
+    this.allProducts.unshift(product);
     this.updateServerProduct()
   }
 

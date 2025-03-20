@@ -25,6 +25,7 @@ export class ProductManagementComponent implements OnInit {
   productForm = new FormGroup({
     image: new FormControl(''),
     name: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     price: new FormControl(0, [Validators.required, Validators.min(1)]),
   });
   showProduct: boolean = false;
@@ -40,22 +41,6 @@ export class ProductManagementComponent implements OnInit {
 
   toggleOpenProduct(): void {
     this.showProduct = !this.showProduct;
-  }
-
-  addProduct(): void {
-    this.productService.addProduct(this.newProduct);
-    this.newProduct = { id: 0, name: '', price: 0 };
-    this.products = this.productService.getProducts();
-    this.toastService.showMessage('New Product added.');
-  }
-
-  updateProduct(): void {
-    if (this.editingProduct) {
-      this.productService.updateProduct(this.editingProduct);
-      this.editingProduct = null;
-      this.products = this.productService.getProducts();
-      this.toastService.showMessage('Product updated.');
-    }
   }
 
   loadProducts(): void {
@@ -74,30 +59,13 @@ export class ProductManagementComponent implements OnInit {
       const newProduct: Product = {
         id: Date.now(),
         name: this.productForm.value.name!,
+        description: this.productForm.value.description!,
         price: this.productForm.value.price!,
       };
       this.productService.addProduct(newProduct);
     }
     this.productForm.reset();
     this.loadProducts();
-  }
-
-  editProduct(product: Product): void {
-    this.editingProduct = product;
-    this.productForm.setValue({
-      name: product.name,
-      price: product.price,
-      image: product.image || '',
-    });
-    this.toggleOpenProduct();
-  }
-
-  deleteProduct(productId: number): void {
-    const del = confirm('Are you sure you want to delete this product?');
-    if (del) {
-      this.productService.deleteProduct(productId);
-      this.loadProducts();
-      this.toastService.showMessage('Product deleted.');
-    }
+    this.toggleOpenProduct()
   }
 }

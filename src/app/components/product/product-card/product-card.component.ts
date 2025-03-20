@@ -12,7 +12,11 @@ import { CommonModule } from '@angular/common';
 export class ProductCardComponent {
   @Input() product!: Product;
   @Input() showBuyButton: boolean = true;
+  @Input() isInCart: boolean = false;
   @Output() onAddToCart = new EventEmitter<Product>();
+  @Output() onRemoveFromCart = new EventEmitter<Product>();
+  isAdding = false
+
   get dynamicStyles() {
     return {
       '--product-name': `"${this.product?.name || 'Default'}"`,
@@ -20,5 +24,8 @@ export class ProductCardComponent {
   }
   handleAddToCart(): void {
     this.onAddToCart.emit(this.product);
+  }
+  handleRemoveFromCart(): void {
+    this.onRemoveFromCart.emit(this.product);
   }
 }

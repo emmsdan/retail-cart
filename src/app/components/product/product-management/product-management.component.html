@@ -7,6 +7,7 @@
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <input formControlName="image" placeholder="Image url" />
         <input formControlName="name" placeholder="Product Name" />
+        <textarea formControlName="description" placeholder="Product Description"></textarea>
         <input formControlName="price" type="number" placeholder="Price" />
         <button type="submit" class="btn btn-primary">
           {{ editingProduct ? "Update" : "Add" }} Product
@@ -30,14 +31,6 @@
         [product]="product"
         [showBuyButton]="false"
       ></app-product-card>
-      <div class="product-action">
-        <button class="btn btn-primary" (click)="editProduct(product)">
-          Edit
-        </button>
-        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
-          Delete
-        </button>
-      </div>
     </div>
   </div>
 </div>

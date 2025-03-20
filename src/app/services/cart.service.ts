@@ -94,4 +94,8 @@ export class CartService {
   getDiscountAmount(): number {
     return this.discountAmount;
   }
+
+  isInCart(productId: number): boolean {
+    return this.cartItems.some((item) => item.product.id === productId)
+  }
 }

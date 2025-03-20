@@ -1,13 +1,14 @@
 .product-management {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   padding: 1rem;
+  gap: 2rem;
 
   .product-list {
-    display: flex;
+    display: grid;
     gap: 2rem;
     flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     .product-item {
       position: relative;
@@ -72,4 +73,10 @@
       }
     }
   }
+}
+
+textarea {
+  min-height: 120px;
+  border-radius: 8px;
+  padding: 1rem;
 }

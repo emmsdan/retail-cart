@@ -1,100 +1,132 @@
-.card {
+.product-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  width: 320px;
-  height: 480px;
-  background: #ffce00;
-  border-radius: 20px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333333;
+  font-weight: 600;
+}
+
+.product-description {
+  color: #777777;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  width: 100%;
-  height: 100%;
-  background: #191919;
-  transform: skewY(345deg);
-  transition: 0.5s;
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 1rem;
 }
 
-.card:hover::before {
-  top: -70%;
-  transform: skewY(390deg);
-}
-
-.card::after {
-  content: var(--product-name, "EmmsDan");
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.add-to-cart-btn,
+.remove-from-cart-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 6em;
-  color: rgba(0, 0, 0, 0.1);
-}
-
-.card .imgBox {
-  position: relative;
+  transition: all 0.3s ease;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.add-to-cart-btn {
+  background-color: #f68b1e;
+  color: white;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e07a15;
+}
+
+.remove-from-cart-btn {
+  background-color: white;
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+.remove-from-cart-btn:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.add-to-cart-btn.adding {
+  background-color: #4caf50;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #f68b1e;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
   z-index: 1;
 }
 
-.card .imgBox img {
-  max-width: 100%;
-  height: 240px;
-  transition: 0.5s;
+@media (max-width: 768px) {
+  .product-image {
+    height: 180px;
+  }
+
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
 }
 
-.card .contentBox {
-  position: relative;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 2;
-}
-
-.card .contentBox h3 {
-  font-size: 18px;
-  color: white;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.card .contentBox .price {
-  font-size: 24px;
-  color: white;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.card .contentBox .buy {
-  position: relative;
-  top: 100px;
-  opacity: 0;
-  padding: 10px 30px;
-  margin-top: 15px;
-  color: #ffce00;
-  text-decoration: none;
-  background: #191919;
-  border-radius: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: 0.5s;
-}
-
-.card:hover .contentBox .buy {
-  top: 0;
-  opacity: 1;
-}
-
-.mouse {
-  height: 300px;
-  width: auto;
-}

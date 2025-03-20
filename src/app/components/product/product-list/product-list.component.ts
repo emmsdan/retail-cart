@@ -32,4 +32,11 @@ export class ProductListComponent {
     this.cartService.addToCart(product);
     this.toastService.showMessage(`${product.name} added to cart!`);
   }
+  removeFromCart(product: Product): void {
+    this.cartService.removeFromCart(product.id);
+    this.toastService.showMessage(`${product.name} removed from cart!`);
+  }
+  isInCart(id: Product['id']){
+    return this.cartService.isInCart(id)
+  }
 }
