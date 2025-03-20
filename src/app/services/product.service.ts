@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { PRODUCTS } from '../data/products';
 import {BehaviorSubject} from 'rxjs';
-import {CartItem} from '../models/cart-item.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {

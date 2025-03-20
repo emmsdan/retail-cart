@@ -17,7 +17,6 @@ export class CartComponent {
   cartItems: CartItem[] = [];
   discountCode: string = '';
   grandTotal: number = 0;
-  discountApplied: boolean = false;
   discountMessage: string = '';
   subtotal: number = 0;
   discount: number = 0;

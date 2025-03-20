@@ -53,7 +53,7 @@ describe('CartComponent', () => {
     jest
       .spyOn(cartService, 'getCartItems')
       .mockReturnValue([
-        { product: { id: 1, name: 'Product A', price: 100 }, quantity: 2 },
+        { product: { id: 1, name: 'Product A', price: 100 }, quantity: 2, id: 1},
       ]);
     jest.spyOn(component, 'updateTotals');
 

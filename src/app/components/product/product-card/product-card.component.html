@@ -5,7 +5,7 @@
   <div class="product-info">
     <h3>{{ product.name }}</h3>
     <p class="product-description">{{ product.description }}</p>
-    <div class="product-price\">{{product.price | currency: "₦"}}</div>
+    <div class="product-price">{{product.price | currency: "₦"}}</div>
 
     @if (showBuyButton) {
       @if (isInCart) {

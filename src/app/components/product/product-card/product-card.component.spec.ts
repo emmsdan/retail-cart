@@ -34,7 +34,7 @@ describe('ProductCardComponent', () => {
     fixture.detectChanges();
 
     const nameElement = fixture.debugElement.query(By.css('h3'));
-    const priceElement = fixture.debugElement.query(By.css('.price'));
+    const priceElement = fixture.debugElement.query(By.css('.product-price'));
 
     expect(nameElement.nativeElement.textContent).toContain('Test Product');
     expect(priceElement.nativeElement.textContent).toContain('99.99');
@@ -46,7 +46,7 @@ describe('ProductCardComponent', () => {
 
     jest.spyOn(component.onAddToCart, 'emit');
 
-    const button = fixture.debugElement.query(By.css('.buy'));
+    const button = fixture.debugElement.query(By.css('.add-to-cart-btn'));
     button.nativeElement.click();
 
     expect(component.onAddToCart.emit).toHaveBeenCalledWith(mockProduct);
@@ -64,7 +64,7 @@ describe('ProductCardComponent', () => {
     component.showBuyButton = false;
     fixture.detectChanges();
 
-    const button = fixture.debugElement.query(By.css('.buy'));
+    const button = fixture.debugElement.query(By.css('.add-to-cart-btn'));
     expect(button).toBeNull();
   });
 });
