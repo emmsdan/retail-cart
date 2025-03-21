@@ -1,6 +1,6 @@
 <div class="cart-container">
   <h2>Shopping Cart</h2>
-  <div class="cart-item">
+  <div class="cart-item cart-header">
     <p></p>
     <p></p>
     <p class="cart-item-name">Product Name</p>
@@ -17,10 +17,13 @@
     <p>
       <strong>${{ item.product.price * item.quantity }}</strong>
     </p>
+    <div class="cart-item-actions">
+
     <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item.product.id, item.quantity)" />
     <button (click)="removeFromCart(item.product.id)" class="btn btn-danger">
       Remove
     </button>
+    </div>
   </div>
   }
   @if(!cartItems.length){
