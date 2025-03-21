@@ -28,22 +28,29 @@ This project demonstrates best practices for building scalable Angular applicati
 ## Installation
 
 1. Clone the repository:
-
 ```shellscript
 git clone https://github.com/emmsdan/retail-cart.git
 cd retail-cart
 ```
-2. Install dependencies:
 
+2. Install dependencies:
 ```shellscript
-npm install
+yarn install
 ```
+
 3. Start the development server:
 
 ```shellscript
-ng serve
+yarn start
 ```
-4. Open your browser and navigate to `http://localhost:4200`
+
+4. Start the test server:
+
+```shellscript
+yarn test
+```
+
+5. Open your browser and navigate to `http://localhost:4200`
 
 ## Project Structure
 ```plaintext
